@@ -105,6 +105,9 @@ function updateUserPronouns(e) {
     }
     else {
         const data = new FormData();
+        forumDisplay.click(function() {
+            $(this).prop('checked',!$(this).prop('checked'));
+        });
         const isForumDisplayChecked = forumDisplay.prop('checked');
         // eslint-disable-next-line no-undef
         data.append('csrf_token', csrfToken);
