@@ -24,12 +24,11 @@ const docker_ui_path = '/admin/docker';
 
 describe('Docker UI Test', () => {
     beforeEach(() => {
-        cy.visit('/');
         cy.login();
         cy.visit(docker_ui_path);
     });
 
-    //!DEPRECATED: Installer will also update the docker info
+    // !DEPRECATED: Installer will also update the docker info
     // it('Should be the first update', () => {
     //     // No info update should be made before this test...
     //     // Check if the update time is "Unknown"
@@ -50,8 +49,8 @@ describe('Docker UI Test', () => {
         // Should prompt a success message
         cy.get('.alert-success')
             .invoke('text')
-            .should('contain', 'Successfully queued the system to update' +
-                ' docker, please refresh the page in a bit.');
+            .should('contain', 'Successfully queued the system to update'
+            + ' docker, please refresh the page in a bit.');
 
         // Allow the system to update the info and reload
         cy.waitAndReloadUntil(() => {
@@ -127,8 +126,8 @@ describe('Docker UI Test', () => {
 
         cy.wait(100);
         cy.get('.alert-success')
-            .should('have.text', 'submitty/autograding-default:latest' +
-                  ' found on DockerHub and queued to be added!');
+            .should('have.text', 'submitty/autograding-default:latest'
+            + ' found on DockerHub and queued to be added!');
 
         // Allow the system to update the info and reload
         cy.waitAndReloadUntil(() => {
@@ -153,8 +152,8 @@ describe('Docker UI Test', () => {
 
         cy.wait(100);
         cy.get('.alert-error')
-            .should('have.text', 'submitty/autograding-default:latest ' +
-                    'already exists in capability cpp');
+            .should('have.text', 'submitty/autograding-default:latest '
+            + 'already exists in capability cpp');
     });
 
     it('Should add new image', () => {
@@ -169,7 +168,7 @@ describe('Docker UI Test', () => {
             .should('not.be.disabled')
             .click();
         cy.get('.alert-success')
-            .should('have.text', 'submitty/python:2.7 found on DockerHub' +
-                    ' and queued to be added!');
+            .should('have.text', 'submitty/python:2.7 found on DockerHub'
+            + ' and queued to be added!');
     });
 });

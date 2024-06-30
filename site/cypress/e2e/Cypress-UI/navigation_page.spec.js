@@ -1,4 +1,4 @@
-import {getCurrentSemester} from '../../support/utils.js';
+import { getCurrentSemester } from '../../support/utils.js';
 
 function validate_navigation_page_sections(sections) {
     const section_keys = Object.keys(sections);
@@ -13,7 +13,7 @@ describe('navigation page', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.wait(500);
-        cy.viewport(1920,1200);
+        cy.viewport(1920, 1200);
     });
 
     it('should show instructor content for instructor', () => {
